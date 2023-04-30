@@ -30,6 +30,12 @@ python main.py
 
 4. Star the repo 😄
 
+## 🎬 Gameplay
+
+<p align="center">
+  <img width="600px" src="https://github.com/alexlostorto/auto-clicker/raw/main/.github/program.png">
+</p>
+
 ## 📜 Credits
 
 Everything is coded by Alex lo Storto
