@@ -8,7 +8,29 @@
 
 This auto clicker simulates a left click using **PyAutoGUI** for a desired interval.
 
-## Credits
+## ⚡ Quick setup
+
+1. Clone the repo
+
+```bash
+git clone https://github.com/alexlostorto/auto-clicker
+```
+
+2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Run main.py
+
+```bash
+python main.py
+```
+
+4. Star the repo 😄
+
+## 📜 Credits
 
 Everything is coded by Alex lo Storto
 
