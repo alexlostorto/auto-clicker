@@ -11,8 +11,8 @@ class Window():
         frame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
         return frame
 
-    def Button(self, text, command, pad=20, font='Calibri 15 bold', fg='white', bg='black', side=tk.TOP):
-        button = tk.Button(master=self.master, text=text, command=command, font=font, fg=fg, bg=bg, relief='raised')
+    def Button(self, textVariable, command, pad=20, font='Calibri 15 bold', fg='white', bg='black', side=tk.TOP):
+        button = tk.Button(master=self.master, textvariable=textVariable, command=command, font=font, fg=fg, bg=bg, relief='raised')
         button.pack(padx=pad, pady=pad, side=side)
         return button
 

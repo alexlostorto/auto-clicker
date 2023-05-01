@@ -1,20 +1,21 @@
-# Get Clicker instance
-from src.Clicker import clicker
-
 from src.interval import getInterval
 
 
 class Button():
-    def __init__(self, entries):
+    def __init__(self, clicker, textVariable, entries):
+        self.text = textVariable
+        self.clicker = clicker
         self.entries = entries
         self.active = False
 
     def startButton(self):
         if self.active:
             self.active = False
-            clicker.deactivate()
+            self.text.set('Start (F6)')
+            self.clicker.deactivate()
         else:
             self.active = True
+            self.text.set('Stop (F6)')
             seconds = getInterval(self.entries)
-            clicker.interval = seconds
-            clicker.activate()
+            self.clicker.interval = seconds
+            self.clicker.activate()

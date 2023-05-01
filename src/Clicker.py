@@ -15,43 +15,37 @@ HOTKEY = 'f6'
 
 class Clicker():
     def __init__(self):
-        self.previousClick = time.time()
-        self.interval = 1
+        self.interval = 0.1
         self.active = False
 
-    def listen(self, button, entries):
-        if self.active:
-            button['text'] = 'Stop (F6)'
-            self.click()
-        else:
-            button['text'] = 'Start (F6)'
-
+    def listen(self, buttonText, entries):
         print("Listening")
-        if keyboard.is_pressed(HOTKEY):
-            print("Hotkey pressed")
-            self.interval = getInterval(entries)
-            self.toggle()
+        keyboard.wait('f6')
+
+        print("Hotkey pressed")
+        self.interval = getInterval(entries)
+        self.toggle(buttonText)
+        self.listen(buttonText, entries)
 
     def click(self):
-        if time.time() - self.previousClick >= self.interval:
-            print("Left click")
-            self.previousClick = time.time()
-            pyautogui.leftClick()
+        while True:
+            if self.active:
+                print("Clicking")
+                time.sleep(self.interval)
+                pyautogui.leftClick()
 
     def activate(self):
         print("Activated")
-        self.previousClick = time.time()
         self.active = True
 
     def deactivate(self):
         print("Deactivated")
         self.active = False
 
-    def toggle(self):
+    def toggle(self, buttonText):
         if self.active:
+            buttonText.set('Start (F6)')
             self.deactivate()
         else:
+            buttonText.set('Stop (F6)')
             self.activate()
-
-
-clicker = Clicker()
